@@ -1,33 +1,31 @@
 function createTable() {
-    //Write your code here
-	let rn=prompt("number of rows");
-	let cn = prompt("number of columns");
+  // Prompt user for rows and columns
+  let rn = prompt("Input number of rows");
+  let cn = prompt("Input number of columns");
 
-	rn = parseInt(rn);
-	cn = parseInt(cn);
+  // Convert to integers
+  rn = parseInt(rn);
+  cn = parseInt(cn);
 
-	if(isNaN(rn) || isNaN(cn)){
-		alert("please enter valid numbers!");
-		return;
-	}
-	if(rn<=0 || cn<=0){
-		alert("rows and columns must be greater than 0!");
-		return;
-	}
+  // Validate input
+  if (isNaN(rn) || isNaN(cn) || rn <= 0 || cn <= 0) {
+    alert("Invalid input! Please enter positive numbers.");
+    return;
+  }
 
-	const table = document.getElementById("myTable");
-	table.innerHTML = "";
+  // Get table and clear previous content
+  const table = document.getElementById("myTable");
+  table.innerHTML = "";
 
-	for(let i=0;i<rn;i++){
-		const row = document.createElement("tr");
-		for(let j=0;j<cn;j++){
-			const cell = document.createElement("td");
-			cell.textContent = `Row-${i}  Column-${j}`;
-			row.appendChild(cell);
-		}
-		table.appendChild(row);
-	}
-	
-  
+  // Create table dynamically
+  for (let i = 0; i < rn; i++) {
+    const row = document.createElement("tr");
+    for (let j = 0; j < cn; j++) {
+      const cell = document.createElement("td");
+      cell.textContent = `Row-${i} Column-${j}`;
+      row.appendChild(cell);
+    }
+    table.appendChild(row);
+  }
 }
 
